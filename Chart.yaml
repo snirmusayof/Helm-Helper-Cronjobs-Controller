@@ -1,0 +1,11 @@
+apiVersion: v2
+description: your subchart description
+name: cronjobs-controller
+version: 0.0.1
+
+dependencies:
+  - name: authentication-proxy
+    version: 0.0.2
+    repository: "oci://registry.fdjkf/cloulet-service/
+
+

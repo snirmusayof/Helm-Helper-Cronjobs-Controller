@@ -1,0 +1,20 @@
+#port: &port 5000
+#name: &name helper-cronjobs-controller
+#
+#k8s-authentication-proxy:
+#  webserver:
+#    service:
+#      port: *port
+#      name: *name
+#      secured: true
+
+
+
+deployment:
+  pullSecret: pull-secret-robot-clouslet-outer-sevices
+  repository: mr
+  image: cronjobs-controller
+  tag: 0.0.1
+
+namespace: cronjobs-controller
+fqdn: ocp.test
