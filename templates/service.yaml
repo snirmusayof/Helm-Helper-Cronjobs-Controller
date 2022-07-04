@@ -1,0 +1,12 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: helper-cronjobs-controller
+  namespace: cronjobs-controller
+spec:
+  ports:
+    - protocol: TCP
+      port: 5000
+      targetPort: 5000
+  selector:
+    app: helper-cronjobs-controller
