@@ -1,1 +1,17 @@
 kind: route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: helper-cronjobs-controller
+  namespace: cronjobs-controller
+spec:
+  host: cronjobs.apps.{{ .Values.fqdn }}
+  to:
+    kind: Service
+    name: helper-cronjobs-controller
+    weight: 100
+  port:
+    targertPort: 5000
+  tls:
+    tremination: edge
+    insecureEdgeTerminationPolicy: Redirect
+  wildcardPolicy: None
