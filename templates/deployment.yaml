@@ -1,0 +1,24 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: helper-cronjobs-controller
+  namespace: cronjobs-controller
+  labels:
+    app: helper-cronjobs-controller
+spec:
+  selector:
+    matchLabels:
+      app: helper-cronjobs-controller
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: helper-cronjobs-controller
+    spec:
+      containers:
+        - name: helper-cronjobs-controller
+          image: "harbor.apps.{{ .Values.fqdn }}/{{ .Values.deployment.repository }}/{{ .Values.deployment.image }}:{{ .Values.deployment.tag }}"
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 5000
+               protocol: TCP
